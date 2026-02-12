@@ -9,7 +9,7 @@ function About() {
         {/* ================= HEADER ================= */}
         <div className="text-center">
           <h1 className="text-3xl md:text-4xl font-bold">
-            About Me 👨‍💻
+            About Me 
           </h1>
           <p className="mt-4 text-muted">
             Get to know more about me, my background & experience
