@@ -1,0 +1,27 @@
+:root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --border: #8899bb;
+
+    --color-primary: #F97316;
+    --color-secondary: #133d7c;
+    --color-accent: #00c2a8;
+
+    --font-sans: "Inter", sans-serif;
+}
+
+:root[data-theme="dark"] {
+    --background: #000000;
+    --foreground: #FFFFFF;
+    --border: #1e293b;
+
+    --color-primary: #f97316;
+    --color-secondary: #38bdf8;
+    --color-accent: #4ff2d6;
+}
+
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+}
