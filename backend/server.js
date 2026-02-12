@@ -14,7 +14,9 @@ const PORT = process.env.PORT || 5000;
 connectDB();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin:"https://portfolio-red-eight-84.vercel.app/"
+}));
 app.use(express.json());
 
 // Test Route
