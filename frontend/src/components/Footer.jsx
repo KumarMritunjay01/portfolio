@@ -21,7 +21,7 @@ function Footer() {
 
           {/* Left Text */}
           <p className="text-muted text-sm">
-            © 2026 Mritunjay Kumar. <sapn className="text-primary">Turning ideas into code.</sapn>
+            © 2026 Mritunjay Kumar. <span className="text-primary">Turning ideas into code.</span>
           </p>
 
           {/* Icons */}

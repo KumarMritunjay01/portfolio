@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db.js";
 import projectRoutes from "./routes/project.routes.js"
+import contactRoutes from "./routes/contact.routes.js"
 
 dotenv.config();
 
@@ -17,7 +18,8 @@ connectDB();
 app.use(cors({
     origin: [
         "https://portfolio-red-eight-84.vercel.app",
-        "https://portfolio-green-nine-bdsqj51va9.vercel.app"
+        "https://portfolio-green-nine-bdsqj51va9.vercel.app",
+        "http://localhost:5173",
     ]
 }));
 app.use(express.json());
@@ -29,6 +31,9 @@ app.get("/", (req, res) => {
 
 // Project Routes
 app.use("/api/projects", projectRoutes);
+
+// Contact Routes
+app.use("/api/contact" ,contactRoutes)
 
 // Server Start
 app.listen(PORT, () => {

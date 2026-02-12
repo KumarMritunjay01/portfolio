@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { sendMessage } from "../services/api";
+import { useNavigate } from "react-router-dom";
 
 function Contact() {
+
+  const navigate = useNavigate();   // ✅ navigation
 
   const [formData, setFormData] = useState({
     name: "",
@@ -54,29 +57,53 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log("🔥 BUTTON CLICKED");
+
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length > 0) {
+      console.log("❌ Validation Errors:", validationErrors);
       setErrors(validationErrors);
       return;
     }
 
     try {
       setLoading(true);
+      setSuccess("");
 
-      await sendMessage(formData);
+      console.log("🚀 Sending Data:", formData);
 
-      setSuccess("Message Sent Successfully 😄🔥");
+      const res = await sendMessage(formData);
 
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      console.log("✅ API Response:", res.data);
+
+      if (res.data.success) {
+
+        setSuccess("Message Sent Successfully 😄🔥");
+
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+
+        // ✅ Redirect after delay
+        setTimeout(() => {
+          navigate("/");
+        }, 1500);
+      }
 
     } catch (error) {
-      console.error(error);
+
+      console.error("❌ ERROR:", error);
+
+      if (error.response?.data?.message) {
+        alert(error.response.data.message);
+      } else {
+        alert("Something went wrong 😢");
+      }
+
     } finally {
       setLoading(false);
     }
@@ -87,12 +114,10 @@ function Contact() {
 
       <div className="max-w-2xl mx-auto px-6 py-24">
 
-        {/* Heading */}
         <h1 className="text-3xl md:text-5xl font-bold text-primary mb-10 text-center">
           Contact Me
         </h1>
 
-        {/* Form Card */}
         <div className="bg-secondary/10 border border-border rounded-xl p-6">
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -127,7 +152,7 @@ function Contact() {
               )}
             </div>
 
-            {/* Subject  */}
+            {/* Subject */}
             <div>
               <input
                 type="text"
