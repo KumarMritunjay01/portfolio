@@ -29,7 +29,7 @@ function Navbar() {
           <div className="flex gap-6 text-sm font-medium">
             <NavItem to="/">Home</NavItem>
             <NavItem to="/about">About</NavItem>
-            <NavItem to="/skills">Skills</NavItem>
+            <NavItem to="/skill">Skills</NavItem>
             <NavItem to="/projects">Projects</NavItem>
             <NavItem to="/contact">Contact</NavItem>
           </div>

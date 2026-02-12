@@ -1,57 +1,52 @@
-
 import React from "react";
-import Navbar from "../components/Navbar";
+import SkillCard from "../components/SkillCard";
+
+import {
+  FaReact,
+  FaNodeJs,
+  FaHtml5,
+  FaJs,
+} from "react-icons/fa";
+
+import { SiMongodb, SiExpress } from "react-icons/si";
 
 const skills = [
-  { name: "React.js", level: 90 },
-  { name: "Node.js", level: 85 },
-  { name: "MongoDB", level: 80 },
-  { name: "Express.js", level: 85 },
-  { name: "JavaScript", level: 88 },
-  { name: "HTML / CSS", level: 92 },
+  { name: "React.js", level: 90, icon: <FaReact /> },
+  { name: "Node.js", level: 85, icon: <FaNodeJs /> },
+  { name: "MongoDB", level: 80, icon: <SiMongodb /> },
+  { name: "Express.js", level: 85, icon: <SiExpress /> },
+  { name: "JavaScript", level: 88, icon: <FaJs /> },
+  { name: "HTML / CSS", level: 92, icon: <FaHtml5 /> },
 ];
 
 function Skills() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      
-      {/* <Navbar /> */}
 
-      <div className="max-w-5xl mx-auto px-6 py-20">
+      <div className="max-w-5xl mx-auto px-6 py-24">
 
-        {/* Heading */}
-        <h1 className="text-3xl md:text-5xl font-bold text-primary mb-12 text-center">
-          My Skills 🚀
-        </h1>
+        {/* Header */}
+        <div className="text-center">
+          <h1 className="text-3xl md:text-5xl font-bold text-primary">
+            My Skills 🚀
+          </h1>
+
+          <p className="mt-4 text-muted">
+            Technologies & tools I work with
+          </p>
+        </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
 
-          {skills.map((skill) => (
-            <div
+          {skills.map((skill, index) => (
+            <SkillCard
               key={skill.name}
-              className="bg-secondary/10 border border-border rounded-xl p-5 
-              hover:scale-[1.02] transition duration-300"
-            >
-              {/* Skill Header */}
-              <div className="flex justify-between mb-2">
-                <h3 className="font-semibold">
-                  {skill.name}
-                </h3>
-
-                <span className="text-sm text-muted">
-                  {skill.level}%
-                </span>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="w-full h-2 bg-border rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-primary rounded-full transition-all duration-500"
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
-            </div>
+              name={skill.name}
+              level={skill.level}
+              icon={skill.icon}
+              index={index}
+            />
           ))}
 
         </div>
