@@ -1,23 +1,41 @@
-
 import React from "react";
 
 function Footer() {
   return (
-    <footer>
-      <p>© 2026 Mritunjay Kumar. All rights reserved.</p>
+    <footer className="border-t border-border">
+      <div className="max-w-6xl mx-auto px-6 py-10">
 
-      <div>
-        <a href="https://github.com/yourusername" target="_blank">
-          GitHub
-        </a>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
-        <a href="https://linkedin.com/in/yourprofile" target="_blank">
-          LinkedIn
-        </a>
+          {/* Left Text */}
+          <p className="text-muted text-sm">
+            © 2026 MyPortfolio, Inc.
+          </p>
+
+          {/* Social Icons */}
+          <div className="flex gap-6 text-lg">
+
+            <span className="text-muted hover:text-primary cursor-pointer transition">
+              📷
+            </span>
+
+            <span className="text-muted hover:text-primary cursor-pointer transition">
+              💼
+            </span>
+
+            <span className="text-muted hover:text-primary cursor-pointer transition">
+              🐦
+            </span>
+
+            <span className="text-muted hover:text-primary cursor-pointer transition">
+              💻
+            </span>
+
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
 
 export default Footer;
-

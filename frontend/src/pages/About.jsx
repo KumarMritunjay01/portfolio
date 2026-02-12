@@ -1,49 +1,39 @@
 import React from "react";
+import profileImage from "../assets/profile.jpg";
 import Navbar from "../components/Navbar";
 
 function About() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      
-      <Navbar />
+    <>
+      {/* <Navbar/> */}
+      <section className="border-t border-border">
+        <div className="max-w-6xl mx-auto px-6 py-24">
 
-      {/* Content Container */}
-      <div className="max-w-4xl mx-auto px-6 py-20">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
 
-        {/* Heading */}
-        <h1 className="text-3xl md:text-5xl font-bold text-primary mb-10">
-          About Me 👨‍💻
-        </h1>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold">
+                About Me
+              </h2>
 
-        {/* Paragraphs */}
-        <div className="space-y-6 text-muted leading-relaxed">
+              <p className="mt-6 text-muted leading-relaxed">
+                I am a passionate MERN Stack Developer who loves building
+                modern, responsive, and user-friendly web applications.
+              </p>
+            </div>
 
-          <p>
-            Hi, I'm{" "}
-            <span className="text-primary font-semibold">
-              Mritunjay Kumar
-            </span>
-            , a passionate MERN Stack Developer from India 🇮🇳.
-          </p>
+            <div className="flex justify-center">
+              <img
+                src={profileImage}
+                alt="About"
+                className="w-72 rounded-xl border border-border"
+              />
+            </div>
 
-          <p>
-            I love building modern, scalable, and user-friendly web applications.
-            My main focus is on React.js, Node.js, Express.js, and MongoDB.
-          </p>
-
-          <p>
-            I have worked on several projects including a Blog Website, 
-            Note-Making App, and an E-Commerce Platform using the MERN Stack.
-          </p>
-
-          <p>
-            My goal is to become a highly skilled Software Developer and work on
-            impactful real-world products 🚀.
-          </p>
-
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </>
   );
 }
 
