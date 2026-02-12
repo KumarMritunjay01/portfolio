@@ -9,15 +9,10 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <div className="bg-background text-foreground">
-
-      <Navbar />
-
       <Hero />
       <About/>
       <Projects/>
       <Contact/>
-      <Footer />
-
     </div>
   );
 }

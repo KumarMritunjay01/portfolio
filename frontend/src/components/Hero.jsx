@@ -1,45 +1,47 @@
 import React from "react";
+import { motion } from "framer-motion";
+import techImage from "../assets/techImage.jpg"
 
 function Hero() {
   return (
     <section className="min-h-screen flex items-center">
-      <div className="max-w-6xl mx-auto px-6 w-full">
+  <div className="max-w-6xl mx-auto px-6 w-full">
 
-        <div className="text-center">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
 
-          {/* Badge */}
-          <div className="inline-block px-4 py-1 rounded-full border border-border text-muted text-sm">
-            MERN Stack Developer 🚀
-          </div>
+      {/* LEFT → TEXT */}
+      <div className="text-center md:text-left">
 
-          {/* Heading */}
-          <h1 className="mt-6 text-4xl md:text-6xl font-bold">
-            Hello, I am{" "}
-            <span className="text-primary">Mritunjay Kumar</span>
-          </h1>
-
-          {/* Subtitle */}
-          <p className="mt-4 text-muted text-lg md:text-xl">
-            I build modern & scalable web applications
-          </p>
-
-          {/* Buttons */}
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-
-            <button className="bg-primary text-background px-6 py-3 rounded-lg 
-            hover:scale-105 transition duration-300 active:scale-95">
-              My Resume
-            </button>
-
-            <button className="border border-border px-6 py-3 rounded-lg 
-            hover:bg-primary hover:text-background transition duration-300">
-              Contact Me
-            </button>
-
-          </div>
+        <div className="inline-block px-4 py-1 rounded-full border border-border text-muted text-sm">
+          MERN Stack Developer
         </div>
+
+        <h1 className="mt-6 text-4xl md:text-6xl font-bold">
+          Hello, I am{" "}
+          <span className="text-primary">Mritunjay Kumar</span>
+        </h1>
+
+        <p className="mt-4 text-muted text-lg">
+          Passionate about building & coding modern web applications
+        </p>
+
       </div>
-    </section>
+
+      {/* RIGHT → IMAGE */}
+      <div className="flex justify-center">
+
+        <img
+          src={techImage}
+          alt="image"
+          className="w-72 rounded-2xl border border-border shadow-sm"
+        />
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
   );
 }
 

@@ -19,7 +19,7 @@ function Navbar() {
 
         {/* Logo */}
         <h2 className="text-2xl font-bold text-primary">
-          MyPortfolio 🚀
+          MyPortfolio
         </h2>
 
         {/* Desktop Menu */}

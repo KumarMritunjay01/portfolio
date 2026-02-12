@@ -21,7 +21,7 @@ function Projects() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       
-      <Navbar />
+      {/* <Navbar /> */}
 
       <div className="max-w-6xl mx-auto px-6 py-20">
 
