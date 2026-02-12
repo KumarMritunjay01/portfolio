@@ -4,6 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import projectRoutes from "./routes/project.routes.js"
 import contactRoutes from "./routes/contact.routes.js"
+import skillRoutes from "./routes/skill.routes.js"
 
 dotenv.config();
 
@@ -34,6 +35,9 @@ app.use("/api/projects", projectRoutes);
 
 // Contact Routes
 app.use("/api/contact" ,contactRoutes)
+
+// skills route
+app.use("/api/skill", skillRoutes);
 
 // Server Start
 app.listen(PORT, () => {

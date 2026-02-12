@@ -10,3 +10,6 @@ export const getProjects = () => {
 
 // ✅ Send Contact Message
 export const sendMessage = (data) => API.post("/api/contact", data);
+
+// GET Skills
+export const getSkills = () => API.get("/api/skill");

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SkillCard from "../components/SkillCard";
+import { getSkills } from "../services/api";
 
 import {
   FaReact,
@@ -10,16 +11,57 @@ import {
 
 import { SiMongodb, SiExpress } from "react-icons/si";
 
-const skills = [
-  { name: "React.js", level: 90, icon: <FaReact /> },
-  { name: "Node.js", level: 85, icon: <FaNodeJs /> },
-  { name: "MongoDB", level: 80, icon: <SiMongodb /> },
-  { name: "Express.js", level: 85, icon: <SiExpress /> },
-  { name: "JavaScript", level: 88, icon: <FaJs /> },
-  { name: "HTML / CSS", level: 92, icon: <FaHtml5 /> },
-];
-
 function Skills() {
+
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    fetchSkills();
+  }, []);
+
+  const fetchSkills = async () => {
+    try {
+
+      const res = await getSkills();
+
+      console.log("🔥 Skills From DB:", res.data);
+
+      if (res.data.success) {
+        setSkills(res.data.data);
+      }
+
+    } catch (error) {
+      console.error("Fetch Error:", error);
+    }
+  };
+
+  // ✅ Icon Mapper
+  const getIcon = (iconName) => {
+
+    switch (iconName) {
+      case "react":
+        return <FaReact />;
+
+      case "node":
+        return <FaNodeJs />;
+
+      case "mongodb":
+        return <SiMongodb />;
+
+      case "express":
+        return <SiExpress />;
+
+      case "javascript":
+        return <FaJs />;
+
+      case "html":
+        return <FaHtml5 />;
+
+      default:
+        return <FaJs />;
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
 
@@ -28,7 +70,7 @@ function Skills() {
         {/* Header */}
         <div className="text-center">
           <h1 className="text-3xl md:text-5xl font-bold text-primary">
-            My Skills 🚀
+            My Skills
           </h1>
 
           <p className="mt-4 text-muted">
@@ -41,10 +83,10 @@ function Skills() {
 
           {skills.map((skill, index) => (
             <SkillCard
-              key={skill.name}
+              key={skill._id}
               name={skill.name}
               level={skill.level}
-              icon={skill.icon}
+              icon={getIcon(skill.icon)}  
               index={index}
             />
           ))}
