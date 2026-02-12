@@ -15,7 +15,10 @@ connectDB();
 
 // Middlewares
 app.use(cors({
-    origin: "https://portfolio-red-eight-84.vercel.app"
+    origin: [
+        "https://portfolio-red-eight-84.vercel.app",
+        "https://portfolio-green-nine-bdsqj51va9.vercel.app"
+    ]
 }));
 app.use(express.json());
 
