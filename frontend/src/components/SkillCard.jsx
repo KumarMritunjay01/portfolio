@@ -8,7 +8,7 @@ function SkillCard({ name, level, icon, index }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ scale: 1.02 }}
-      className="bg-secondary/10 border border-border rounded-xl p-5"
+      className="bg-card border border-border rounded-xl p-5 shadow-sm"
     >
       {/* Skill Header */}
       <div className="flex justify-between items-center mb-3">
@@ -20,12 +20,12 @@ function SkillCard({ name, level, icon, index }) {
             {icon}
           </div>
 
-          <h3 className="font-semibold">
+          <h3 className="font-semibold text-foreground">
             {name}
           </h3>
         </div>
 
-        <span className="text-sm text-muted">
+        <span className="text-sm text-muted-foreground">
           {level}%
         </span>
       </div>
@@ -34,10 +34,11 @@ function SkillCard({ name, level, icon, index }) {
       <div className="w-full h-2 bg-border rounded-full overflow-hidden">
 
         <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: `${level}%` }}
-          transition={{ duration: 1 }}
-          className="h-full bg-primary rounded-full"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: index * 0.1 }}
+          whileHover={{ scale: 1.02 }}
+          className="bg-card border border-border rounded-xl p-5 shadow-sm"
         />
 
       </div>
