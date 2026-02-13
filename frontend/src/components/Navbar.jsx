@@ -13,8 +13,8 @@ function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/70 border-b border-border">
-      
+    <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/70 border-b border-border relative">
+  
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
         {/* Logo */}
@@ -68,12 +68,12 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col gap-4 px-6 pb-4 text-sm font-medium bg-background border-t border-border">
-          <NavItem to="/">Home</NavItem>
-          <NavItem to="/about">About</NavItem>
-          <NavItem to="/skills">Skills</NavItem>
-          <NavItem to="/projects">Projects</NavItem>
-          <NavItem to="/contact">Contact</NavItem>
+      <div className="md:hidden absolute right-5 top-16 flex flex-col gap-4 p-6 w-36 text-base font-lg bg-background rounded-xl shadow-lg items-end text-right">
+          <NavItem to="/" onClick={() => setMenuOpen(false)}>Home</NavItem>
+          <NavItem to="/about" onClick={() => setMenuOpen(false)}>About</NavItem>
+          <NavItem to="/skills" onClick={() => setMenuOpen(false)}>Skills</NavItem>
+          <NavItem to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavItem>
+          <NavItem to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavItem>
         </div>
       )}
     </nav>
@@ -82,10 +82,11 @@ function Navbar() {
 
 export default Navbar;
 
-function NavItem({ to, children }) {
+function NavItem({ to, children, onClick }) {
   return (
     <NavLink
       to={to}
+      onClick={onClick}   // ✅ ADD THIS LINE
       className={({ isActive }) =>
         `
         transition duration-300
