@@ -26,9 +26,8 @@ function Skills() {
 
       console.log("🔥 Skills From DB:", res.data);
 
-      if (res.data.success) {
-        setSkills(res.data.data);
-      }
+      const skillsData = res.data.data ?? res.data;
+      setSkills(skillsData);
 
     } catch (error) {
       console.error("Fetch Error:", error);
