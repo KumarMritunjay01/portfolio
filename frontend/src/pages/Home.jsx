@@ -11,7 +11,6 @@ function Home() {
     <div className="bg-background text-foreground">
       <Hero />
       <About/>
-      <Projects/>
       <Contact/>
     </div>
   );
