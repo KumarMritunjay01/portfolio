@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 function Home() {
   return (
     <div className="bg-background text-foreground">
+      <h1>DEPLOY FORCE TEST 🔥</h1>
       <Hero />
       <About/>
       <Contact/>
