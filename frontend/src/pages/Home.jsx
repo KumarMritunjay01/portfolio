@@ -10,8 +10,6 @@ function Home() {
   return (
     <div className="bg-background text-foreground">
       <h1>DEPLOY FORCE TEST 🔥</h1>
-      <h1>DEPLOY FORCE TEST 🔥</h1>
-      <h1>FINAL TEST 🔥</h1>
       <Hero />
       <About/>
       <Contact/>
