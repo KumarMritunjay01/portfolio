@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import techImage from "../assets/techImage.jpg"
 
 function Hero() {
   return (
@@ -31,7 +30,7 @@ function Hero() {
       <div className="flex justify-center">
 
         <img
-          src={techImage}
+          src="https://res.cloudinary.com/dkddz7kio/image/upload/v1771153187/techImage_nafwnz.jpg"
           alt="image"
           className="w-72 rounded-2xl border border-border shadow-sm"
         />

@@ -1,5 +1,4 @@
 import React from "react";
-import profileImage from "../assets/profile.jpg";
 
 function About() {
   return (
@@ -22,7 +21,7 @@ function About() {
           {/* IMAGE */}
           <div className="flex justify-center">
             <img
-              src={profileImage}
+              src="https://res.cloudinary.com/dkddz7kio/image/upload/v1771153184/profile_yrnliy.jpg"
               alt="Profile"
               className="w-72 rounded-2xl border border-border shadow-sm"
             />
