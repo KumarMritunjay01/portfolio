@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SkillCard from "../components/SkillCard";
+import Loader from "../components/Loader";   // ✅ IMPORT LOADER
 import { getSkills } from "../services/api";
 
 import {
@@ -14,6 +15,7 @@ import { SiMongodb, SiExpress } from "react-icons/si";
 function Skills() {
 
   const [skills, setSkills] = useState([]);
+  const [loading, setLoading] = useState(true);   // ✅ LOADING STATE
 
   useEffect(() => {
     fetchSkills();
@@ -21,6 +23,7 @@ function Skills() {
 
   const fetchSkills = async () => {
     try {
+      setLoading(true);   // ✅ START LOADING
 
       const res = await getSkills();
 
@@ -31,6 +34,9 @@ function Skills() {
 
     } catch (error) {
       console.error("Fetch Error:", error);
+
+    } finally {
+      setLoading(false);   // ✅ STOP LOADING
     }
   };
 
@@ -77,20 +83,31 @@ function Skills() {
           </p>
         </div>
 
-        {/* Skills Grid */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* ✅ CONDITIONAL RENDERING */}
+        <div className="mt-16">
 
-          {skills.map((skill, index) => (
-            <SkillCard
-              key={skill._id}
-              name={skill.name}
-              level={skill.level}
-              icon={getIcon(skill.icon)}  
-              index={index}
-            />
-          ))}
+          {loading ? (
+
+            <Loader />   // ✅ USE YOUR LOADER COMPONENT
+
+          ) : (
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {skills.map((skill, index) => (
+                <SkillCard
+                  key={skill._id}
+                  name={skill.name}
+                  level={skill.level}
+                  icon={getIcon(skill.icon)}
+                  index={index}
+                />
+              ))}
+            </div>
+
+          )}
 
         </div>
+
       </div>
     </div>
   );

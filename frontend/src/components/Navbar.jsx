@@ -71,7 +71,7 @@ function Navbar() {
       <div className="md:hidden absolute right-5 top-16 flex flex-col gap-4 p-6 w-36 text-base font-lg bg-background rounded-xl shadow-lg items-end text-right">
           <NavItem to="/" onClick={() => setMenuOpen(false)}>Home</NavItem>
           <NavItem to="/about" onClick={() => setMenuOpen(false)}>About</NavItem>
-          <NavItem to="/skills" onClick={() => setMenuOpen(false)}>Skills</NavItem>
+          <NavItem to="/skill" onClick={() => setMenuOpen(false)}>Skills</NavItem>
           <NavItem to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavItem>
           <NavItem to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavItem>
         </div>
