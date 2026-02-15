@@ -18,7 +18,7 @@ connectDB();
 // Middlewares
 app.use(cors({
     origin: [
-        "https://portfolio-six-eosin-53.vercel.app",
+        "https://portfolio-dun-five-25.vercel.app",
         "http://localhost:5173",
         "http://192.168.29.115:5000",
     ]
