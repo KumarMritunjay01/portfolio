@@ -30,11 +30,25 @@ function Navbar() {
       
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
-        {/* Logo */}
-        <h2 className="text-2xl font-bold text-primary">
-          MyPortfolio
-        </h2>
+        <NavLink to="/" className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer">
+              <div className="
+                w-9 h-9 rounded-full 
+                bg-primary text-primary-foreground
+                flex items-center justify-center
+                text-sm font-bold
+              ">
+                MK
+              </div>
 
+              {/* Name */}
+              <h2 className="text-xl font-bold text-foreground">
+                MRITUNJAY
+              </h2>
+
+          </div>
+        </NavLink>
+        
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
 
