@@ -9,38 +9,44 @@ function ProjectCard({ project, index }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ scale: 1.03 }}
-      className="bg-secondary/10 border border-border rounded-xl p-5"
+      className="bg-background/10 border border-border rounded-xl p-6 flex flex-col justify-between"
     >
-      {/* Title */}
-      <h2 className="text-lg font-semibold text-primary">
-        {project.title}
-      </h2>
+      {/* ================= TOP CONTENT ================= */}
+      <div>
 
-      {/* Description */}
-      <p className="text-sm text-muted mt-2 leading-relaxed">
-        {project.description}
-      </p>
+        {/* Title */}
+        <h2 className="text-lg font-semibold text-primary">
+          {project.title}
+        </h2>
 
-      {/* Tech Stack */}
-      <div className="mt-3 text-sm">
-        <span className="text-secondary font-medium">
-          Tech Stack:
-        </span>
+        {/* Description */}
+        <p className="text-sm text-muted mt-3 leading-relaxed">
+          {project.description}
+        </p>
 
-        <div className="flex flex-wrap gap-2 mt-2">
-          {project.techStack?.map((tech) => (
-            <span
-              key={tech}
-              className="px-2 py-1 text-xs border border-border rounded-md text-muted"
-            >
-              {tech}
-            </span>
-          ))}
+        {/* Tech Stack */}
+        <div className="mt-4">
+          <span className="text-secondary text-sm font-medium">
+            Tech Stack
+          </span>
+
+          <div className="flex flex-wrap gap-2 mt-2">
+            {project.techStack?.map((tech) => (
+              <span
+                key={tech}
+                className="px-2.5 py-1 text-xs border border-border rounded-md 
+                text-muted bg-background/40"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
         </div>
+
       </div>
 
-      {/* Buttons */}
-      <div className="flex gap-3 mt-5">
+      {/* ================= FOOTER / ACTIONS ================= */}
+      <div className="flex gap-3 mt-6 flex-wrap">
 
         {project.githubLink && (
           <motion.a
@@ -48,7 +54,8 @@ function ProjectCard({ project, index }) {
             href={project.githubLink}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 text-sm px-3 py-2 rounded-lg bg-primary text-background"
+            className="flex items-center justify-center gap-2 text-sm 
+            px-4 py-2 rounded-lg bg-primary text-background flex-1 min-w-[120px]"
           >
             <FaGithub />
             GitHub
@@ -61,7 +68,9 @@ function ProjectCard({ project, index }) {
             href={project.liveDemo}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-2 text-sm px-3 py-2 rounded-lg border border-border hover:bg-primary hover:text-background transition"
+            className="flex items-center justify-center gap-2 text-sm 
+            px-4 py-2 rounded-lg border border-border hover:bg-primary 
+            hover:text-background transition flex-1 min-w-[120px]"
           >
             <FaExternalLinkAlt />
             Live Demo
