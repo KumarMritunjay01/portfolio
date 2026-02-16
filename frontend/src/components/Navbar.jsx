@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
@@ -14,7 +13,7 @@ function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/70 border-b border-border relative">
-  
+      
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
         {/* Logo */}
@@ -25,12 +24,12 @@ function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
 
-          {/* Links */}
           <div className="flex gap-6 text-sm font-medium">
             <NavItem to="/">Home</NavItem>
             <NavItem to="/about">About</NavItem>
             <NavItem to="/skill">Skills</NavItem>
             <NavItem to="/projects">Projects</NavItem>
+            <NavItem to="/cirtificate">Cirtificate</NavItem>
             <NavItem to="/contact">Contact</NavItem>
           </div>
 
@@ -48,7 +47,6 @@ function Navbar() {
         {/* Mobile Controls */}
         <div className="flex md:hidden items-center gap-3">
 
-          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             className="px-3 py-1 rounded-lg border border-border text-foreground"
@@ -61,21 +59,28 @@ function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-2xl text-foreground"
           >
-            ☰
+            {menuOpen ? "✖" : "☰"}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {menuOpen && (
-      <div className="md:hidden absolute right-5 top-16 flex flex-col gap-4 p-6 w-36 text-base font-lg bg-background rounded-xl shadow-lg items-end text-right">
-          <NavItem to="/" onClick={() => setMenuOpen(false)}>Home</NavItem>
-          <NavItem to="/about" onClick={() => setMenuOpen(false)}>About</NavItem>
-          <NavItem to="/skill" onClick={() => setMenuOpen(false)}>Skills</NavItem>
-          <NavItem to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavItem>
-          <NavItem to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavItem>
-        </div>
-      )}
+      {/* ✅ Mobile Menu (FIXED POSITIONING) */}
+      <div
+        className={`
+          md:hidden absolute top-full right-4 mt-2
+          w-40 bg-background border border-border
+          rounded-xl shadow-lg p-5 flex flex-col gap-4 text-right
+          transition-all duration-300 origin-top
+          ${menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
+        `}
+      >
+        <NavItem to="/" onClick={() => setMenuOpen(false)}>Home</NavItem>
+        <NavItem to="/about" onClick={() => setMenuOpen(false)}>About</NavItem>
+        <NavItem to="/skill" onClick={() => setMenuOpen(false)}>Skills</NavItem>
+        <NavItem to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavItem>
+        <NavItem to="/cirtificate" onClick={() => setMenuOpen(false)}>Cirtificate</NavItem>
+        <NavItem to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavItem>
+      </div>
     </nav>
   );
 }
@@ -86,7 +91,7 @@ function NavItem({ to, children, onClick }) {
   return (
     <NavLink
       to={to}
-      onClick={onClick}   // ✅ ADD THIS LINE
+      onClick={onClick}
       className={({ isActive }) =>
         `
         transition duration-300

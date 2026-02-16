@@ -6,6 +6,7 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Layout from "./components/Layout";
+import Cirtificate from "./pages/Cirtificate";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/skill" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/cirtificate" element={<Cirtificate/>} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </Layout>
