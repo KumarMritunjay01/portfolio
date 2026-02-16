@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCertificates } from "../api";   // ✅ USE API LAYER
+import { getCertificates } from "../services/api"
 import CertificateCard from "../components/CertificateCard";
 
 function Cirtificate() {
