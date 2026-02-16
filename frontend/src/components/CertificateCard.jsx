@@ -2,42 +2,47 @@ import React from "react";
 
 function CertificateCard({ cert }) {
   return (
-    <div className="border border-border rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 bg-background">
-      
-      {/* Image */}
-      <img
-        src={cert.imageUrl}
-        alt={cert.title}
-        className="w-full h-40 object-cover"
-      />
+    <div className="bg-card border border-border rounded-2xl overflow-hidden 
+    shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
 
-      {/* Content */}
-      <div className="p-5">
-        <h2 className="text-lg font-semibold text-foreground">
+      {/* ✅ Image Section */}
+      <div className="w-full h-44 bg-muted flex items-center justify-center p-4">
+        <img
+          src={cert.imageUrl}
+          alt={cert.title}
+          className="max-h-full max-w-full object-contain"
+        />
+      </div>
+
+      {/* ✅ Content */}
+      <div className="p-5 space-y-2">
+
+        <h2 className="text-base font-semibold text-foreground leading-snug">
           {cert.title}
         </h2>
 
-        <p className="text-sm text-primary mt-1">
+        <p className="text-sm text-primary font-medium">
           {cert.technology}
         </p>
 
         {cert.issuer && (
-          <p className="text-xs opacity-60 mt-2">
+          <p className="text-xs text-muted-foreground">
             {cert.issuer}
           </p>
         )}
 
-        {/* Button */}
         {cert.credentialUrl && (
           <a
             href={cert.credentialUrl}
             target="_blank"
             rel="noreferrer"
-            className="inline-block mt-4 text-sm text-primary hover:underline"
+            className="inline-flex items-center gap-1 text-sm text-primary 
+            hover:gap-2 transition-all duration-200 pt-2"
           >
             View Credential →
           </a>
         )}
+
       </div>
     </div>
   );
