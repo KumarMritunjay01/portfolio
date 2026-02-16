@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { getCertificates } from "../api";   // ✅ USE API LAYER
 import CertificateCard from "../components/CertificateCard";
 
 function Cirtificate() {
@@ -11,7 +11,7 @@ function Cirtificate() {
 
   const fetchCertificates = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/certificates");
+      const res = await getCertificates();   // ✅ CLEAN CALL
       setCertificates(res.data);
     } catch (error) {
       console.log("Error fetching certificates:", error);
@@ -21,12 +21,10 @@ function Cirtificate() {
   return (
     <div className="min-h-screen bg-background text-foreground px-6 py-10">
 
-      {/* Heading */}
       <h1 className="text-3xl font-bold text-primary mb-10 text-center">
         My Certificates
       </h1>
 
-      {/* Grid */}
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {certificates.map((cert) => (
           <CertificateCard key={cert._id} cert={cert} />
