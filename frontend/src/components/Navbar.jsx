@@ -1,14 +1,28 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  useEffect(() => {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    document.documentElement.dataset.theme = savedTheme;
+  }
+}, []);
+
+
   const toggleTheme = () => {
     const root = document.documentElement;
 
-    root.dataset.theme =
+    const newTheme =
       root.dataset.theme === "dark" ? "light" : "dark";
+
+    root.dataset.theme = newTheme;
+
+    // ✅ Persist theme
+    localStorage.setItem("theme", newTheme);
   };
 
   return (
