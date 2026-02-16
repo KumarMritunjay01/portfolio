@@ -21,7 +21,7 @@ function Hero() {
         </h1>
 
         <p className="mt-4 text-muted text-lg">
-          Turning ideas into real-world web applications.
+          Turning ideas into web applications.
         </p>
 
         <p className="mt-2 text-muted">
