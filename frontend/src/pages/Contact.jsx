@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function Contact() {
 
-  const navigate = useNavigate();   // ✅ navigation
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -39,7 +39,7 @@ function Contact() {
     }
 
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+      newErrors.email = "Please enter a valid email";
     }
 
     if (formData.subject.trim().length < 5) {
@@ -57,12 +57,9 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("🔥 BUTTON CLICKED");
-
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length > 0) {
-      console.log("❌ Validation Errors:", validationErrors);
       setErrors(validationErrors);
       return;
     }
@@ -71,15 +68,19 @@ function Contact() {
       setLoading(true);
       setSuccess("");
 
-      console.log("🚀 Sending Data:", formData);
+      // ✅ Trimmed Data (Pro-Level Detail)
+      const cleanedData = {
+        name: formData.name.trim(),
+        email: formData.email.trim(),
+        subject: formData.subject.trim(),
+        message: formData.message.trim(),
+      };
 
-      const res = await sendMessage(formData);
-
-      console.log("✅ API Response:", res.data);
+      const res = await sendMessage(cleanedData);
 
       if (res.data.success) {
 
-        setSuccess("Message Sent Successfully 😄🔥");
+        setSuccess("Message sent successfully. I'll get back to you soon.");
 
         setFormData({
           name: "",
@@ -88,7 +89,7 @@ function Contact() {
           message: "",
         });
 
-        // ✅ Redirect after delay
+        // ✅ Redirect After Delay
         setTimeout(() => {
           navigate("/");
         }, 1500);
@@ -96,12 +97,10 @@ function Contact() {
 
     } catch (error) {
 
-      console.error("❌ ERROR:", error);
-
       if (error.response?.data?.message) {
         alert(error.response.data.message);
       } else {
-        alert("Something went wrong 😢");
+        alert("Something went wrong. Please try again.");
       }
 
     } finally {
@@ -122,30 +121,32 @@ function Contact() {
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
-            {/* Name */}
+            {/* Full Name */}
             <div>
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Full Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-background border border-border rounded-lg px-4 py-2"
+                className="w-full bg-background border border-border rounded-lg px-4 py-2
+                focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
               {errors.name && (
                 <p className="text-error text-xs mt-1">{errors.name}</p>
               )}
             </div>
 
-            {/* Email */}
+            {/* Work Email */}
             <div>
               <input
                 type="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder="Work Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-background border border-border rounded-lg px-4 py-2"
+                className="w-full bg-background border border-border rounded-lg px-4 py-2
+                focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
               {errors.email && (
                 <p className="text-error text-xs mt-1">{errors.email}</p>
@@ -157,10 +158,11 @@ function Contact() {
               <input
                 type="text"
                 name="subject"
-                placeholder="Subject"
+                placeholder="Subject / Opportunity"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full bg-background border border-border rounded-lg px-4 py-2"
+                className="w-full bg-background border border-border rounded-lg px-4 py-2
+                focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
               {errors.subject && (
                 <p className="text-error text-xs mt-1">{errors.subject}</p>
@@ -171,11 +173,12 @@ function Contact() {
             <div>
               <textarea
                 name="message"
-                placeholder="Your Message"
+                placeholder="Tell me about your project or opportunity"
                 value={formData.message}
                 onChange={handleChange}
                 rows="4"
-                className="w-full bg-background border border-border rounded-lg px-4 py-2 resize-none"
+                className="w-full bg-background border border-border rounded-lg px-4 py-2 resize-none
+                focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
               {errors.message && (
                 <p className="text-error text-xs mt-1">{errors.message}</p>
@@ -187,7 +190,8 @@ function Contact() {
               type="submit"
               disabled={loading}
               className="bg-primary text-background py-2 rounded-lg font-semibold
-              hover:scale-105 active:scale-95 transition duration-300 disabled:opacity-50"
+              hover:scale-105 active:scale-95 transition duration-300
+              disabled:opacity-50 shadow-sm"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>

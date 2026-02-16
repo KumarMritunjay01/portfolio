@@ -21,9 +21,12 @@ function Hero() {
         </h1>
 
         <p className="mt-4 text-muted text-lg">
-          Passionate about building & coding modern web applications
+          Turning ideas into real-world web applications.
         </p>
 
+        <p className="mt-2 text-muted">
+          Building products that people love to <span className="text-primary">use.</span>
+        </p>
       </div>
 
       {/* RIGHT → IMAGE */}
