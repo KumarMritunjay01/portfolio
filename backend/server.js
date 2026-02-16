@@ -28,7 +28,7 @@ app.use(express.json());
 
 // Test Route
 app.get("/", (req, res) => {
-    res.send("Portfolio API Running 🚀");
+    res.send("Portfolio API Running ");
 });
 
 // Project Routes

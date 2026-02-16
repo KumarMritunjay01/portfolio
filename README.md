@@ -1,4 +1,4 @@
-# 🚀 MERN Portfolio
+# MERN Portfolio
 
 Modern portfolio website built using:
 
