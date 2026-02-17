@@ -117,7 +117,7 @@ function Contact() {
           Contact Me
         </h1>
 
-        <div className="bg-secondary/10 border border-border rounded-xl p-6">
+        <div className="bg-background border border-border rounded-xl p-6">
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
@@ -191,7 +191,7 @@ function Contact() {
               disabled={loading}
               className="bg-primary text-background py-2 rounded-lg font-semibold
               hover:scale-105 active:scale-95 transition duration-300
-              disabled:opacity-50 shadow-sm"
+              disabled:opacity-50 shadow-sm cursor-pointer"
             >
               {loading ? "Sending..." : "Send Message"}
             </button>

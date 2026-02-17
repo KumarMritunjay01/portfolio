@@ -1,27 +1,145 @@
+@import "tailwindcss";
+
+/* ---------- Base theme variables (light) ---------- */
 :root {
     --background: #ffffff;
     --foreground: #171717;
-    --border: #8899bb;
+
+    /* --border:#2563EB; */
+    --border: #E5E7EB;
+
+    --color-banner: #F97316;
+    --color-on-banner: #133d7c;
 
     --color-primary: #F97316;
+    --color-on-primary: #ffffff;
+
     --color-secondary: #133d7c;
+    --color-on-secondary: #f0a21d;
+
+    --color-button: #72bdeb;
+    --color-on-button: #000000;
+
     --color-accent: #00c2a8;
+    --color-on-accent: #0a0a0a;
 
-    --font-sans: "Inter", sans-serif;
+    --color-success: #16a34a;
+    --color-on-success: #ffffff;
+
+    --color-info: #0284c7;
+    --color-on-info: #ffffff;
+
+    --color-warning: #f9c05c;
+    --color-on-warning: #0a0a0a;
+
+    --color-error: #dc2626;
+    --color-on-error: #ffffff;
+
+    --color-neutral: #f3f4f6;
+    --color-on-neutral: #0a0a0a;
+
+    --color-loading: #00e5ff;
+
+    --font-geist-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    --font-geist-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
 }
 
+/* Map variables to "tailwind theme" tokens (your existing @theme inline style) */
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-border: var(--border);
+
+    --color-banner: var(--color-banner);
+    --color-on-banner: var(--color-on-banner);
+
+    --color-primary: var(--color-primary);
+    --color-on-primary: var(--color-on-primary);
+
+    --color-secondary: var(--color-secondary);
+    --color-on-secondary: var(--color-on-secondary);
+
+    --color-button: var(--color-button);
+    --color-on-button: var(--color-on-button);
+
+    --color-accent: var(--color-accent);
+    --color-on-accent: var(--color-on-accent);
+
+    --color-success: var(--color-success);
+    --color-on-success: var(--color-on-success);
+
+    --color-info: var(--color-info);
+    --color-on-info: var(--color-on-info);
+
+    --color-warning: var(--color-warning);
+    --color-on-warning: var(--color-on-warning);
+
+    --color-error: var(--color-error);
+    --color-on-error: var(--color-on-error);
+
+    --color-neutral: var(--color-neutral);
+    --color-on-neutral: var(--color-on-neutral);
+
+    --color-loading: var(--color-loading);
+
+    --font-sans: var(--font-geist-sans);
+    --font-mono: var(--font-geist-mono);
+}
+
+/* Dark mode: swap semantic variables */
 :root[data-theme="dark"] {
-    --background: #000000;
-    --foreground: #FFFFFF;
-    --border: #1e293b;
+    --background: #0a0a0a;
+    --foreground: #ededed;
 
-    --color-primary: #f97316;
-    --color-secondary: #38bdf8;
+    /* --border:#60A5FA; */
+    --border: #374151;
+
+    --color-banner: #F97316;
+    --color-on-banner: #133d7c;
+
+    /* same semantic tokens but darker/lightened variants for dark theme */
+    --color-primary: #F97316;
+    --color-on-primary: #07142a;
+
+    --color-secondary: #0D47A1;
+    --color-on-secondary: #07142a;
+
+    --color-button: #ffffff;
+    --color-on-button: #131a7c;
+
     --color-accent: #4ff2d6;
+    --color-on-accent: #07142a;
+
+    --color-success: #4ade80;
+    --color-on-success: #07142a;
+
+    --color-info: #60a5fa;
+    --color-on-info: #07142a;
+
+    --color-warning: #fbbf24;
+    --color-on-warning: #07142a;
+
+    --color-error: #fb7185;
+    --color-on-error: #07142a;
+
+    --color-neutral: #111827;
+    --color-on-neutral: #e6edf3;
+
+    --color-loading: #1f2937;
 }
 
+/* Apply to body */
 body {
     background: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans);
+    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+/* OPTIONAL: handy helper classes if you like CSS-only usage (not required with Tailwind) */
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
 }

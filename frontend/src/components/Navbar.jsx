@@ -66,7 +66,7 @@ function Navbar() {
             onClick={toggleTheme}
             className="px-3 py-1 rounded-lg border border-border 
             text-foreground hover:bg-primary hover:text-white 
-            hover:scale-105 active:scale-95 transition duration-300"
+            hover:scale-105 active:scale-95 transition duration-300 cursor-pointer"
           >
             🌙
           </button>
@@ -77,7 +77,7 @@ function Navbar() {
 
           <button
             onClick={toggleTheme}
-            className="px-3 py-1 rounded-lg border border-border text-foreground"
+            className="px-3 py-1 rounded-lg border border-border text-foreground cursor-pointer"
           >
             🌙
           </button>
@@ -85,7 +85,7 @@ function Navbar() {
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-2xl text-foreground"
+            className="text-2xl text-foreground cursor-pointer"
           >
             {menuOpen ? "✖" : "☰"}
           </button>
