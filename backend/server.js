@@ -6,6 +6,7 @@ import projectRoutes from "./routes/project.routes.js"
 import contactRoutes from "./routes/contact.routes.js"
 import skillRoutes from "./routes/skill.routes.js"
 import cirtificateRoutes from "./routes/certificate.routes.js"
+import resumeRoutes from "./routes/resume.routes.js"
 
 dotenv.config();
 
@@ -42,6 +43,9 @@ app.use("/api/skill", skillRoutes);4
 
 // Cirtificates
 app.use("/api/certificates",cirtificateRoutes);
+
+// Resume
+app.use("/api/resume", resumeRoutes);
 
 // Server Start
 app.listen(PORT, () => {
