@@ -1,17 +1,15 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme) {
-    document.documentElement.dataset.theme = savedTheme;
-  }
-}, []);
-
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      document.documentElement.dataset.theme = savedTheme;
+    }
+  }, []);
 
   const toggleTheme = () => {
     const root = document.documentElement;
@@ -20,35 +18,31 @@ function Navbar() {
       root.dataset.theme === "dark" ? "light" : "dark";
 
     root.dataset.theme = newTheme;
-
-    // ✅ Persist theme
     localStorage.setItem("theme", newTheme);
   };
 
   return (
     <nav className="sticky top-0 z-50 backdrop-blur-lg bg-background/70 border-b border-border relative">
-      
-      <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+
+      <div className="max-w-6xl mx-auto flex justify-between items-center px-4 md:px-6 py-3 md:py-4">
 
         <NavLink to="/" className="flex items-center gap-2">
           <div className="flex items-center gap-2 cursor-pointer">
-              <div className="
-                w-9 h-9 rounded-full 
-                bg-primary text-primary-foreground
-                flex items-center justify-center
-                text-sm font-bold
-              ">
-                MK
-              </div>
+            <div className="
+              w-9 h-9 rounded-full 
+              bg-primary text-primary-foreground
+              flex items-center justify-center
+              text-sm font-bold
+            ">
+              MK
+            </div>
 
-              {/* Name */}
-              <h2 className="text-xl font-bold text-foreground">
-                MRITUNJAY
-              </h2>
-
+            <h2 className="text-lg md:text-xl font-bold text-foreground">
+              MRITUNJAY
+            </h2>
           </div>
         </NavLink>
-        
+
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-6">
 
@@ -61,53 +55,59 @@ function Navbar() {
             <NavItem to="/contact">Contact</NavItem>
           </div>
 
-          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             className="px-3 py-1 rounded-lg border border-border 
             text-foreground hover:bg-primary hover:text-white 
-            hover:scale-105 active:scale-95 transition duration-300 cursor-pointer"
+            hover:scale-105 active:scale-95 transition duration-300"
           >
             🌙
           </button>
         </div>
 
         {/* Mobile Controls */}
-        <div className="flex md:hidden items-center gap-3">
+        <div className="flex md:hidden items-center gap-2">
 
           <button
             onClick={toggleTheme}
-            className="px-3 py-1 rounded-lg border border-border text-foreground cursor-pointer"
+            className="w-9 h-9 rounded-lg border border-border 
+            flex items-center justify-center text-foreground"
           >
             🌙
           </button>
 
-          {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-2xl text-foreground cursor-pointer"
+            className="w-9 h-9 rounded-lg border border-border 
+            flex items-center justify-center text-xl text-foreground"
           >
             {menuOpen ? "✖" : "☰"}
           </button>
         </div>
       </div>
 
-      {/* ✅ Mobile Menu (FIXED POSITIONING) */}
+      {/* ✅ Improved Mobile Menu */}
       <div
         className={`
-          md:hidden absolute top-full right-4 mt-2
-          w-40 bg-background border border-border
-          rounded-xl shadow-lg p-5 flex flex-col gap-4 text-right
-          transition-all duration-300 origin-top
-          ${menuOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}
+          md:hidden absolute top-full left-0 w-full
+          bg-background/95 backdrop-blur-xl
+          border-b border-border
+          transition-all duration-300 ease-in-out
+          ${menuOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-2 pointer-events-none"}
         `}
       >
-        <NavItem to="/" onClick={() => setMenuOpen(false)}>Home</NavItem>
-        <NavItem to="/about" onClick={() => setMenuOpen(false)}>About</NavItem>
-        <NavItem to="/skill" onClick={() => setMenuOpen(false)}>Skills</NavItem>
-        <NavItem to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavItem>
-        <NavItem to="/cirtificate" onClick={() => setMenuOpen(false)}>Cirtificate</NavItem>
-        <NavItem to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavItem>
+        <div className="flex flex-col px-6 py-4 gap-3 text-sm font-medium">
+
+          <NavItem to="/" onClick={() => setMenuOpen(false)}>Home</NavItem>
+          <NavItem to="/about" onClick={() => setMenuOpen(false)}>About</NavItem>
+          <NavItem to="/skill" onClick={() => setMenuOpen(false)}>Skills</NavItem>
+          <NavItem to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavItem>
+          <NavItem to="/cirtificate" onClick={() => setMenuOpen(false)}>Cirtificate</NavItem>
+          <NavItem to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavItem>
+
+        </div>
       </div>
     </nav>
   );
@@ -122,7 +122,7 @@ function NavItem({ to, children, onClick }) {
       onClick={onClick}
       className={({ isActive }) =>
         `
-        transition duration-300
+        py-2 transition duration-300
         ${isActive
           ? "text-primary"
           : "text-foreground hover:text-primary"}
