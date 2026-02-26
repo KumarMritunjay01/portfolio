@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 function About() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+  const video = videoRef.current;
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    },
+    { threshold: 0.3 } // play when 30% visible
+  );
+
+  if (video) observer.observe(video);
+
+  return () => {
+    if (video) observer.unobserve(video);
+  };
+}, []);
+
   return (
     <section className="bg-background text-foreground">
       <div className="max-w-6xl mx-auto px-6 py-24">
@@ -14,17 +37,30 @@ function About() {
             Learn more about my journey, skills, and experience
           </p>
         </div>
-
-        {/* ================= MAIN GRID ================= */}
         <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
-
-          {/* IMAGE */}
           <div className="flex justify-center">
-            <img
-              src="https://res.cloudinary.com/dkddz7kio/image/upload/v1771153184/profile_yrnliy.jpg"
-              alt="Profile"
-              className="w-72 rounded-2xl border border-border shadow-sm hover:scale-105 transition"
-            />
+            <video
+            ref={videoRef}
+                className="
+                  w-full 
+                  max-w-md 
+                  aspect-video
+                  object-contain 
+                  mx-auto 
+                  rounded-2xl 
+                  shadow-xl 
+                  cursor-pointer
+                "
+                autoPlay
+                loop
+                playsInline
+                controls
+              >
+              <source
+                src="https://res.cloudinary.com/dkddz7kio/video/upload/v1772102254/WhatsApp_Video_2026-02-26_at_16.05.20_rzr0n1.mp4"
+                type="video/mp4"
+              />
+            </video>
           </div>
 
           {/* SUMMARY */}

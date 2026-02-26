@@ -31,13 +31,11 @@ function Hero() {
 
       {/* RIGHT → IMAGE */}
       <div className="flex justify-center">
-
         <img
-          src="https://res.cloudinary.com/dkddz7kio/image/upload/v1771153187/techImage_nafwnz.jpg"
+          src="https://res.cloudinary.com/dkddz7kio/image/upload/v1771153184/profile_yrnliy.jpg"
           alt="image"
           className="w-72 rounded-2xl border border-border shadow-sm"
         />
-
       </div>
 
     </div>
