@@ -14,25 +14,22 @@ function Resume() {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6">
+    <section className="flex items-center justify-center px-6 py-4">
+      <div className="max-w-lg w-full text-center">
 
-      <div className="max-w-xl w-full text-center">
-
-        {/* HEADER */}
-        <h1 className="text-3xl md:text-5xl font-bold">
+        <h1 className="text-3xl md:text-4xl font-bold">
           My <span className="text-primary">Resume</span>
         </h1>
 
-        <p className="mt-3 text-muted">
+        <p className="mt-2 text-muted">
           View or download my professional resume
         </p>
 
-        {/* SINGLE CONTAINER */}
         <div className="
-          mt-10 rounded-2xl border border-border
+          mt-5 rounded-2xl border border-border
           bg-background/40 backdrop-blur-xl
           shadow-lg
-          p-10
+          p-6
         ">
 
           {loading ? (
@@ -40,32 +37,24 @@ function Resume() {
           ) : resume?.resumeUrl ? (
             <div className="flex flex-col items-center">
 
-              {/* BIG ICON */}
               <div className="
-                w-16 h-16 rounded-2xl
+                w-14 h-14 rounded-xl
                 bg-primary/10 border border-primary/20
                 flex items-center justify-center
-                mb-6
+                mb-4
               ">
-                <FileText size={32} className="text-primary" />
+                <FileText size={28} className="text-primary" />
               </div>
 
-              {/* FILE TEXT */}
-              <p className="text-lg font-medium">
-                Resume.pdf
-              </p>
+              <p className="text-lg font-medium">Resume.pdf</p>
+              <p className="text-sm text-muted mb-5">PDF Document</p>
 
-              <p className="text-sm text-muted mb-6">
-                PDF Document
-              </p>
-
-              {/* BUTTONS */}
               <div className="flex gap-3">
 
                 <button
                   onClick={() => window.open(resume.resumeUrl, "_blank")}
                   className="
-                    px-5 py-2 rounded-lg
+                    px-4 py-2 rounded-lg
                     bg-primary text-white
                     hover:scale-105 active:scale-95
                     transition duration-200
@@ -77,7 +66,7 @@ function Resume() {
                 <button
                   onClick={() => window.open(resume.resumeUrl, "_blank")}
                   className="
-                    px-5 py-2 rounded-lg
+                    px-4 py-2 rounded-lg
                     border border-border
                     hover:bg-primary hover:text-white
                     transition duration-200
@@ -87,7 +76,6 @@ function Resume() {
                 </button>
 
               </div>
-
             </div>
           ) : (
             <p className="text-muted">Resume not available</p>
@@ -98,5 +86,4 @@ function Resume() {
     </section>
   );
 }
-
 export default Resume;
