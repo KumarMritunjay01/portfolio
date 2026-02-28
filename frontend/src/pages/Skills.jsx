@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SkillCard from "../components/SkillCard";
-import Loader from "../components/Loader";   // ✅ IMPORT LOADER
+import Loader from "../components/Loader";
 import { getSkills } from "../services/api";
 
 import {
@@ -8,14 +8,23 @@ import {
   FaNodeJs,
   FaHtml5,
   FaJs,
+  FaJava,
+  FaDatabase,
+  FaGitAlt,
 } from "react-icons/fa";
 
-import { SiMongodb, SiExpress } from "react-icons/si";
+import {
+  SiMongodb,
+  SiExpress,
+  SiTypescript,
+  SiNextdotjs,
+} from "react-icons/si";
+
+import { GiBrain } from "react-icons/gi";
 
 function Skills() {
-
   const [skills, setSkills] = useState([]);
-  const [loading, setLoading] = useState(true);   // ✅ LOADING STATE
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchSkills();
@@ -23,53 +32,46 @@ function Skills() {
 
   const fetchSkills = async () => {
     try {
-      setLoading(true);   // ✅ START LOADING
+      setLoading(true);
 
       const res = await getSkills();
-
-      console.log("🔥 Skills From DB:", res.data);
-
       const skillsData = res.data.data ?? res.data;
+
       setSkills(skillsData);
 
     } catch (error) {
       console.error("Fetch Error:", error);
-
     } finally {
-      setLoading(false);   // ✅ STOP LOADING
+      setLoading(false);
     }
   };
 
-  // ✅ Icon Mapper
+  // ✅ Professional Icon Mapping
+  const iconMap = {
+    react: <FaReact />,
+    node: <FaNodeJs />,
+    mongodb: <SiMongodb />,
+    express: <SiExpress />,
+    javascript: <FaJs />,
+    html: <FaHtml5 />,
+    typescript: <SiTypescript />,
+    nextjs: <SiNextdotjs />,
+    java: <FaJava />,
+    sql: <FaDatabase />,
+    database: <FaDatabase />,
+    git: <FaGitAlt />,
+    dsa: <GiBrain />,
+    algorithm: <GiBrain />,
+    jwt: <FaJs />,
+    "rest apis": <FaJs />,
+  };
+
   const getIcon = (iconName) => {
-
-    switch (iconName) {
-      case "react":
-        return <FaReact />;
-
-      case "node":
-        return <FaNodeJs />;
-
-      case "mongodb":
-        return <SiMongodb />;
-
-      case "express":
-        return <SiExpress />;
-
-      case "javascript":
-        return <FaJs />;
-
-      case "html":
-        return <FaHtml5 />;
-
-      default:
-        return <FaJs />;
-    }
+    return iconMap[iconName?.toLowerCase()] || <FaJs />;
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-
       <div className="max-w-5xl mx-auto px-6 py-24">
 
         {/* Header */}
@@ -83,15 +85,10 @@ function Skills() {
           </p>
         </div>
 
-        {/* ✅ CONDITIONAL RENDERING */}
         <div className="mt-16">
-
           {loading ? (
-
-            <Loader />   // ✅ USE YOUR LOADER COMPONENT
-
+            <Loader />
           ) : (
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {skills.map((skill, index) => (
                 <SkillCard
@@ -103,11 +100,8 @@ function Skills() {
                 />
               ))}
             </div>
-
           )}
-
         </div>
-
       </div>
     </div>
   );

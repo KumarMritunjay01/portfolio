@@ -7,15 +7,12 @@ function SkillCard({ name, level, icon, index }) {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}
-      whileHover={{ scale: 1.02 }}
-      className="bg-card border border-border rounded-xl p-5 shadow-sm"
+      whileHover={{ scale: 1.03 }}
+      className="bg-card border border-border rounded-xl p-5 shadow-sm hover:shadow-lg transition-all"
     >
       {/* Skill Header */}
       <div className="flex justify-between items-center mb-3">
-
         <div className="flex items-center gap-3">
-
-          {/* Icon */}
           <div className="text-primary text-xl">
             {icon}
           </div>
@@ -32,15 +29,12 @@ function SkillCard({ name, level, icon, index }) {
 
       {/* Progress Bar */}
       <div className="w-full h-2 bg-border rounded-full overflow-hidden">
-
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: index * 0.1 }}
-          whileHover={{ scale: 1.02 }}
-          className="bg-card border border-border rounded-xl p-5 shadow-sm"
+          initial={{ width: 0 }}
+          animate={{ width: `${level}%` }}
+          transition={{ duration: 1, delay: index * 0.1 }}
+          className="h-full bg-primary rounded-full"
         />
-
       </div>
     </motion.div>
   );
