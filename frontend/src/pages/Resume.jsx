@@ -26,10 +26,10 @@ function Resume() {
         </p>
 
         <div className="
-          mt-5 rounded-2xl border border-border
+          mt-6 rounded-2xl border border-border
           bg-background/40 backdrop-blur-xl
           shadow-lg
-          p-6
+          p-12
         ">
 
           {loading ? (
@@ -41,7 +41,7 @@ function Resume() {
                 w-14 h-14 rounded-xl
                 bg-primary/10 border border-primary/20
                 flex items-center justify-center
-                mb-4
+                mb-2
               ">
                 <FileText size={28} className="text-primary" />
               </div>
