@@ -21,7 +21,7 @@ function Resume() {
           My <span className="text-primary">Resume</span>
         </h1>
 
-        <p className="mt-2 text-muted">
+        <p className="mt-8 text-muted">
           View or download my professional resume
         </p>
 
