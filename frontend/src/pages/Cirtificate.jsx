@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getCertificates } from "../services/api";
 import CertificateCard from "../components/CertificateCard";
 
-function Cirtificate() {
+function Certificate() {
   const [certificates, setCertificates] = useState([]);
   const [loading, setLoading] = useState(true);   // ✅ NEW
 
@@ -45,4 +45,4 @@ function Cirtificate() {
   );
 }
 
-export default Cirtificate;
+export default Certificate;

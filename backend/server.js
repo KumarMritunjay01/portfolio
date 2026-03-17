@@ -5,7 +5,7 @@ import connectDB from "./config/db.js";
 import projectRoutes from "./routes/project.routes.js"
 import contactRoutes from "./routes/contact.routes.js"
 import skillRoutes from "./routes/skill.routes.js"
-import cirtificateRoutes from "./routes/certificate.routes.js"
+import CertificateRoutes from "./routes/certificate.routes.js"
 import resumeRoutes from "./routes/resume.routes.js"
 
 dotenv.config();
@@ -41,8 +41,8 @@ app.use("/api/contact" ,contactRoutes)
 // skills route
 app.use("/api/skill", skillRoutes);4
 
-// Cirtificates
-app.use("/api/certificates",cirtificateRoutes);
+// Certificates
+app.use("/api/certificates",CertificateRoutes);
 
 // Resume
 app.use("/api/resume", resumeRoutes);

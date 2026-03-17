@@ -6,7 +6,8 @@ import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Layout from "./components/Layout";
-import Cirtificate from "./pages/Cirtificate";
+// import Certificate from "./pages/Certificate";
+import Certificate from "./pages/Cirtificate"
 import Resume from "./pages/Resume";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/skill" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/cirtificate" element={<Cirtificate/>} />
+          <Route path="/Certificate" element={<Certificate/>} />
           <Route path="/resume" element={<Resume/>} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

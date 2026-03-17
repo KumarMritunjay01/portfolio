@@ -51,7 +51,7 @@ function Navbar() {
             <NavItem to="/about">About</NavItem>
             <NavItem to="/skill">Skills</NavItem>
             <NavItem to="/projects">Projects</NavItem>
-            <NavItem to="/cirtificate">Cirtificate</NavItem>
+            <NavItem to="/Certificate">Certificate</NavItem>
             <NavItem to="/resume">Resume</NavItem>
             <NavItem to="/contact">Contact</NavItem>
           </div>
@@ -105,7 +105,7 @@ function Navbar() {
           <NavItem to="/about" onClick={() => setMenuOpen(false)}>About</NavItem>
           <NavItem to="/skill" onClick={() => setMenuOpen(false)}>Skills</NavItem>
           <NavItem to="/projects" onClick={() => setMenuOpen(false)}>Projects</NavItem>
-          <NavItem to="/cirtificate" onClick={() => setMenuOpen(false)}>Certificate</NavItem>
+          <NavItem to="/Certificate" onClick={() => setMenuOpen(false)}>Certificate</NavItem>
           <NavItem to="/resume" onClick={() => setMenuOpen(false)}>Resume</NavItem>
           <NavItem to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavItem>
 
