@@ -26,7 +26,7 @@ function About() {
 
   return (
     <section className="bg-background text-foreground">
-      <div className="max-w-6xl mx-auto px-6 py-24">
+      <div className="max-w-6xl mx-auto px-6 py-10">
 
         {/* ================= HEADER ================= */}
         <div className="text-center">
@@ -37,9 +37,9 @@ function About() {
             Learn more about my journey, skills, and experience
           </p>
         </div>
-        <div className="mt-16 grid md:grid-cols-2 gap-12 items-center">
+        <div className="mt-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="flex justify-center">
-            <video
+            {/* <video
             ref={videoRef}
                 className="
                   w-full 
@@ -60,7 +60,60 @@ function About() {
                 src="https://res.cloudinary.com/dkddz7kio/video/upload/v1772102254/WhatsApp_Video_2026-02-26_at_16.05.20_rzr0n1.mp4"
                 type="video/mp4"
               />
-            </video>
+            </video> */}
+
+            {/* ================= CONTACT ================= */}
+            <div className="mt-24">
+              <h2 className="text-2xl font-semibold text-center">
+                Get In Touch
+              </h2>
+
+              <p className="text-center text-muted mt-3">
+                Feel free to reach out for opportunities, collaborations, or just to say hello.
+              </p>
+
+              <div className="mt-10 max-w-2xl mx-auto border border-border rounded-xl p-8">
+
+                <div className="space-y-5">
+
+                  {/* Phone */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">📞</span>
+                    <a
+                      href="tel:+917079661695"
+                      className="text-muted hover:text-primary transition"
+                    >
+                      +91 70796 61695
+                    </a>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">📧</span>
+                    <a
+                      href="mailto:kmritunjay525@gmail.com"
+                      className="text-muted hover:text-primary transition"
+                    >
+                      kmritunjay525@gmail.com
+                    </a>
+                  </div>
+
+                  {/* WhatsApp */}
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl">💬</span>
+                    <a
+                      href="https://wa.me/917079661695"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-green-600 hover:underline"
+                    >
+                      Chat on WhatsApp
+                    </a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* SUMMARY */}

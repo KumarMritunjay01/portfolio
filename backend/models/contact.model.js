@@ -10,11 +10,11 @@ const contactSchema = new mongoose.Schema(
 
     email: {
       type: String,
-      required: true,
       trim: true,
+      default: "",
     },
 
-    subject: {        
+    phone: {        
       type: String,
       required: true,
       trim: true,

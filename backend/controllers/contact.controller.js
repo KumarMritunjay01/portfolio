@@ -2,20 +2,20 @@ import Contact from "../models/contact.model.js";
 
 export const sendContactMessage = async (req, res) => {
   try {
-    const { name, email, subject, message } = req.body;
+    const { name, email, phone, message } = req.body;
 
-    // ✅ Validation update
-    if (!name || !email || !subject || !message) {
+    // Validation
+    if (!name || !phone || !message) {
       return res.status(400).json({
         success: false,
-        message: "All fields are required",
+        message: "Name, phone number and message are required.",
       });
     }
 
     const newMessage = new Contact({
       name,
-      email,
-      subject,     // ✅ ADD
+      email, // optional
+      phone,
       message,
     });
 
@@ -25,6 +25,7 @@ export const sendContactMessage = async (req, res) => {
       success: true,
       message: "Message sent successfully",
     });
+
   } catch (error) {
     console.error("Contact Error:", error);
 

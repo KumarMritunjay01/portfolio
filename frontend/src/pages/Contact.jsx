@@ -9,7 +9,7 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
+    phone: "",
     message: "",
   });
 
@@ -38,12 +38,15 @@ function Contact() {
       newErrors.name = "Name must be at least 3 characters";
     }
 
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    if (
+      formData.email.trim() &&
+      !/\S+@\S+\.\S+/.test(formData.email)
+    ) {
       newErrors.email = "Please enter a valid email";
     }
 
-    if (formData.subject.trim().length < 5) {
-      newErrors.subject = "Subject must be at least 5 characters";
+    if (!/^[6-9]\d{9}$/.test(formData.phone.trim())) {
+      newErrors.phone = "Please enter a valid 10-digit mobile number";
     }
 
     if (formData.message.trim().length < 10) {
@@ -72,10 +75,10 @@ function Contact() {
       const cleanedData = {
         name: formData.name.trim(),
         email: formData.email.trim(),
-        subject: formData.subject.trim(),
+        phone: formData.phone.trim(),
         message: formData.message.trim(),
       };
-
+      console.log(formData)
       const res = await sendMessage(cleanedData);
 
       if (res.data.success) {
@@ -85,7 +88,7 @@ function Contact() {
         setFormData({
           name: "",
           email: "",
-          subject: "",
+          phone: "",
           message: "",
         });
 
@@ -142,7 +145,7 @@ function Contact() {
               <input
                 type="email"
                 name="email"
-                placeholder="Work Email"
+                placeholder="Your email address"
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full bg-background border border-border rounded-lg px-4 py-2
@@ -156,16 +159,17 @@ function Contact() {
             {/* Subject */}
             <div>
               <input
-                type="text"
-                name="subject"
-                placeholder="Subject / Opportunity"
-                value={formData.subject}
+                type="tel"
+                name="phone"
+                placeholder="Contact Number"
+                value={formData.phone}
                 onChange={handleChange}
                 className="w-full bg-background border border-border rounded-lg px-4 py-2
                 focus:outline-none focus:ring-2 focus:ring-primary/40"
               />
-              {errors.subject && (
-                <p className="text-error text-xs mt-1">{errors.subject}</p>
+
+              {errors.phone && (
+                <p className="text-error text-xs mt-1">{errors.phone}</p>
               )}
             </div>
 
