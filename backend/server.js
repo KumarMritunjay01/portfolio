@@ -7,6 +7,7 @@ import contactRoutes from "./routes/contact.routes.js"
 import skillRoutes from "./routes/skill.routes.js"
 import CertificateRoutes from "./routes/certificate.routes.js"
 import resumeRoutes from "./routes/resume.routes.js"
+import codingRoutes from "./routes/coding.routes.js";
 
 dotenv.config();
 
@@ -40,6 +41,8 @@ app.use("/api/contact" ,contactRoutes)
 
 // skills route
 app.use("/api/skill", skillRoutes);4
+
+app.use("/api/coding", codingRoutes);
 
 // Certificates
 app.use("/api/certificates",CertificateRoutes);

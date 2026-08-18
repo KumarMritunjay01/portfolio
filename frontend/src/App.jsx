@@ -9,6 +9,7 @@ import Layout from "./components/Layout";
 // import Certificate from "./pages/Certificate";
 import Certificate from "./pages/Cirtificate"
 import Resume from "./pages/Resume";
+import CodingJourney from "./pages/CodingJourney";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/skill" element={<Skills />} />
+          <Route path="/codingjourney" element={<CodingJourney />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/Certificate" element={<Certificate/>} />
           <Route path="/resume" element={<Resume/>} />
