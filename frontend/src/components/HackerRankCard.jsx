@@ -2,7 +2,7 @@ import React from "react";
 
 const HackerRankCard = ({ profile }) => {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-neutral shadow-lg">
+    <div className="overflow-hidden rounded-2xl border border-border bg-background text-foreground shadow-lg">
 
       {/* =====================================
           Header
@@ -14,7 +14,7 @@ const HackerRankCard = ({ profile }) => {
 
           <div className="flex items-center gap-4">
 
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary text-2xl">
+            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-background text-2xl">
               🏆
             </div>
 
@@ -23,7 +23,7 @@ const HackerRankCard = ({ profile }) => {
                 HackerRank
               </h2>
 
-              <p className="text-sm text-gray-500 dark:text-gray-400">
+              <p className="text-sm text-foreground">
                 Coding Practice
               </p>
             </div>
@@ -89,7 +89,7 @@ const HackerRankCard = ({ profile }) => {
                   rounded-[35%]
                   border
                   border-primary
-                  bg-primary/10
+                  bg-background/10
                   text-4xl
                 "
               >
@@ -160,7 +160,7 @@ const HackerRankCard = ({ profile }) => {
 
                 {/* Certificate Icon */}
 
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-2xl">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-background/10 text-2xl">
                   📜
                 </div>
 
@@ -173,11 +173,11 @@ const HackerRankCard = ({ profile }) => {
                     {certificate.name}
                   </h4>
 
-                  <p className="mt-2 text-sm text-green-500">
+                  <p className="mt-2 text-sm text-success">
                     ✓ Verified
                   </p>
 
-                  <p className="mt-1 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                  <p className="mt-1 text-xs uppercase tracking-wide text-foreground">
                     {certificate.type}
                   </p>
 
@@ -204,11 +204,11 @@ const HackerRankCard = ({ profile }) => {
             items-center
             justify-center
             rounded-xl
-            bg-primary
+            bg-background
             px-5
             py-3
             font-semibold
-            text-on-primary
+            text-foreground
             transition
             hover:opacity-90
             sm:hidden

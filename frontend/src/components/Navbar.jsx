@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import {motion} from "motion/react"
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -57,14 +58,14 @@ function Navbar() {
             <NavItem to="/contact">Contact</NavItem>
           </div>
 
-          <button
+          <motion.button
             onClick={toggleTheme}
-            className="px-3 py-1 rounded-lg border border-border 
-            text-foreground hover:bg-primary hover:text-white 
-            hover:scale-105 active:scale-95 transition duration-300"
+            className="px-3 py-1 rounded-lg text-foreground cursor-pointer"
+            whileHover={{scale:1.3}}
+            whileTap={{scale:1.1}}
           >
             🌙
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Controls */}

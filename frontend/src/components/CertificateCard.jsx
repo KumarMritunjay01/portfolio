@@ -6,7 +6,7 @@ function CertificateCard({ cert }) {
     shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300">
 
       {/* ✅ Image Section */}
-      <div className="w-full h-44 bg-muted flex items-center justify-center p-4">
+      <div className="w-full h-44 bg-background flex items-center justify-center p-4">
         <img
           src={cert.imageUrl}
           alt={cert.title}
@@ -26,7 +26,7 @@ function CertificateCard({ cert }) {
         </p>
 
         {cert.issuer && (
-          <p className="text-xs text-muted-foreground">
+          <p className="text-xs text-foreground">
             {cert.issuer}
           </p>
         )}

@@ -144,9 +144,7 @@ const CodingJourney = () => {
               mx-auto
               mt-4
               max-w-2xl
-              text-base
-              text-gray-500
-              dark:text-gray-400
+              text-foreground
               sm:text-lg
             "
           >
@@ -168,8 +166,7 @@ const CodingJourney = () => {
 
             <p
               className="
-                text-gray-500
-                dark:text-gray-400
+              text-foreground
               "
             >
               Loading coding profiles...
@@ -188,7 +185,7 @@ const CodingJourney = () => {
 
           <div className="flex justify-center">
 
-            <p className="text-red-500">
+            <p className="text-error">
               {error}
             </p>
 
