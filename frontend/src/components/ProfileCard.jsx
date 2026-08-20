@@ -20,7 +20,7 @@ const ProfileCard = ({ profile }) => {
           Header
       ====================================== */}
 
-      <div className="border-b border-border p-6">
+      <div className="border-b border-border p-6 bg-background text-foreground">
 
         <div className="flex items-center justify-between gap-4">
 
@@ -89,7 +89,7 @@ const ProfileCard = ({ profile }) => {
           Body
       ====================================== */}
 
-      <div className="p-6">
+      <div className="p-6 bg-background text-foreground">
 
         {/* Username */}
         <h3 className="text-xl font-semibold">
