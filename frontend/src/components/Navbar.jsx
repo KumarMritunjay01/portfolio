@@ -28,20 +28,26 @@ function Navbar() {
       <div className="max-w-6xl mx-auto flex justify-between items-center px-4 md:px-6 py-3 md:py-4">
 
         <NavLink to="/" className="flex items-center gap-2">
-          <div className="flex items-center gap-2 cursor-pointer">
-            <div className="
+          <motion.div className="flex items-center gap-2 cursor-pointer"
+          whileHover={{scale:1.1}}
+          whileTap={{scale:1}}
+          >
+            <motion.div className="
               w-9 h-9 rounded-full 
               bg-primary text-primary-foreground
               flex items-center justify-center
               text-sm font-bold
-            ">
+            "
+            whileHover={{rotate:360}}
+            transition={{duration:0.5}}
+            >
               MK
-            </div>
+            </motion.div>
 
             <h2 className="text-lg md:text-xl font-bold text-foreground">
               MRITUNJAY
             </h2>
-          </div>
+          </motion.div>
         </NavLink>
 
         {/* Desktop Menu */}
