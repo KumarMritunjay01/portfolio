@@ -7,7 +7,7 @@ function SmallCTA() {
       <div className="max-w-4xl mx-auto px-6">
 
         <motion.div
-          className="text-center border border-border rounded-2xl p-10 md:p-14"
+          className="text-center  p-10 md:p-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
