@@ -1,21 +1,30 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import BackgroundAnimation from "./BackgroundAnimation";
 
 function Layout({ children }) {
   return (
-    <div className="bg-background text-foreground min-h-screen flex flex-col">
+    <div className="relative min-h-screen bg-background text-foreground flex flex-col">
 
-      {/* Navbar Always Visible */}
-      <Navbar />
+      {/* Global Background Animation */}
+      <BackgroundAnimation />
 
-      {/* Main Page Content */}
-      <main className="flex-1">
-        {children}
-      </main>
+      {/* Content Layer */}
+      <div className="relative z-10 flex min-h-screen flex-col">
 
-      {/* Footer Always Visible */}
-      <Footer />
+        {/* Navbar */}
+        <Navbar />
+
+        {/* Main Page Content */}
+        <main className="flex-1">
+          {children}
+        </main>
+
+        {/* Footer */}
+        <Footer />
+
+      </div>
 
     </div>
   );
