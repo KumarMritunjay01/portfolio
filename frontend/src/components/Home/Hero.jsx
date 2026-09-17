@@ -95,7 +95,7 @@ function Hero() {
 
             <motion.h1
               className="
-                mt-2
+                mt-2c
                 text-4xl
                 sm:text-5xl
                 md:text-6xl
